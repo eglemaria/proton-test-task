@@ -10,6 +10,9 @@ class dragAndDrop extends base {
             "tbody [data-test-id='folders/labels:item-type:folder']:nth-of-type(1) td:nth-of-type(1) [role]"
         )
     }
+    get tableRowOne() {
+        return $('tr:nth-of-type(1) > td:nth-of-type(1)')
+    }
 
     get tableRowTwo() {
         return $('tr:nth-of-type(2) > td:nth-of-type(1)')
@@ -24,8 +27,9 @@ class dragAndDrop extends base {
 
     dragAndDropRows() {
         this.tableRowFolderOne.dragAndDrop(this.tableRowThree)
-        browser.pause(1000)
+        browser.pause(2000)
         this.tableRowFolderOne.dragAndDrop(this.tableRowTwo)
+        browser.pause(2000)
     }
 }
 

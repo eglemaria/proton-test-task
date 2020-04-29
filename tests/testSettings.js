@@ -27,29 +27,26 @@ describe('Test ProtonMail folders/labels settings', () => {
     describe('Create, edit and delete folder', () => {
         it('should create folder', () => {
             foldersLabels.newFolder()
-            foldersLabels.successfulNotification.waitForDisplayed(3000)
             expect(foldersLabels.successfulNotificationText).to.have.string(
                 'created'
             )
-            browser.pause(4000)
+            foldersLabels.successfulNotification.waitForExist({ reverse: true })
         })
 
         it('should edit folder', () => {
             foldersLabels.updateFolder()
-            foldersLabels.successfulNotification.waitForDisplayed(3000)
             expect(foldersLabels.successfulNotificationText).to.have.string(
                 'updated'
             )
-            browser.pause(6000)
+            foldersLabels.successfulNotification.waitForExist({ reverse: true })
         })
 
         it('should delete folder', () => {
             foldersLabels.deleteFolder()
-            foldersLabels.successfulNotification.waitForDisplayed(3000)
             expect(foldersLabels.successfulNotificationText).to.have.string(
                 'removed'
             )
-            browser.pause(4000)
+            foldersLabels.successfulNotification.waitForExist({ reverse: true })
         })
     })
 
@@ -62,24 +59,22 @@ describe('Test ProtonMail folders/labels settings', () => {
             )
             browser.pause(4000)
         })
-
         it('should edit label', () => {
             foldersLabels.updateLabel()
-            foldersLabels.successfulNotification.waitForDisplayed(3000)
             expect(foldersLabels.successfulNotificationText).to.have.string(
                 'updated'
             )
-            browser.pause(4000)
+            foldersLabels.successfulNotification.waitForExist({ reverse: true })
         })
-
         it('should delete label', () => {
             foldersLabels.deleteLabel()
-            foldersLabels.successfulNotification.waitForDisplayed(3000)
             expect(foldersLabels.successfulNotificationText).to.have.string(
                 'removed'
             )
+            foldersLabels.successfulNotification.waitForExist({ reverse: true })
         })
     })
+
     describe('Change order of folders/labels in the list ', () => {
         it('should create folder', () => {
             foldersLabels.newFolder()
